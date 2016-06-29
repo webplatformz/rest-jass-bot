@@ -29,6 +29,11 @@ function registerBotToRegistry() {
         });
     });
 
+    post_req.on('error', (chunk) => {
+        console.log('ErrorResponse: ' + chunk);
+        callBack(500);
+    });
+
     post_req.write(JSON.stringify(post_data));
     post_req.end();
 
