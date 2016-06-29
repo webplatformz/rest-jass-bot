@@ -26,8 +26,6 @@ class BotStrategy {
     }
 }
 
-new Bot('BotName').withStrategy(new BotStrategy()).connect('localhost:3000');
-
 module.exports = {
     create(name, url, sessionName) {
         new Bot(name).withStrategy(new BotStrategy()).connect(url);
