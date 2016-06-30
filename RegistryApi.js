@@ -1,17 +1,18 @@
 'use strict';
 
 const http = require('http');
+//https://jasschallenge-registry.herokuapp.com
 
 function registerBotToRegistry() {
-    const post_data = {
+    const botRegistrationData = {
         host: 'localhost',
-        port: 1337,
+        port: 3002,
         path: '/api',
         owner: 'daniboy',
         id: 'daniboyscrazyrandombot'
     };
 
-    const post_options = {
+    const addBotToRegistryOptions = {
         host: 'localhost',
         port: 3001,
         path: '/api',
@@ -22,7 +23,7 @@ function registerBotToRegistry() {
     };
 
 // Set up the request
-    const post_req = http.request(post_options, function (res) {
+    const post_req = http.request(addBotToRegistryOptions, function (res) {
         res.setEncoding('utf8');
         res.on('data', function (chunk) {
             console.log('Response: ' + chunk);
@@ -31,10 +32,9 @@ function registerBotToRegistry() {
 
     post_req.on('error', (chunk) => {
         console.log('ErrorResponse: ' + chunk);
-        callBack(500);
     });
 
-    post_req.write(JSON.stringify(post_data));
+    post_req.write(JSON.stringify(botRegistrationData));
     post_req.end();
 
 }

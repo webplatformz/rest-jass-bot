@@ -40,8 +40,13 @@ class BotStrategy {
 }
 
 module.exports = {
-    create(name, url, sessionName) {
-        new Bot(name).withStrategy(new BotStrategy(sessionName)).connect(url);
-        new Bot(name).withStrategy(new BotStrategy(sessionName)).connect(url);
+    create(name, url, mode,sessionName) {
+        console.log('Name: ' + name);
+        console.log('Url: ' + url);
+        console.log('Mode: ' + mode);
+        console.log('SessionName: ' + sessionName);
+        
+        new Bot(name).withStrategy(new BotStrategy()).connect(url);
+        new Bot(name).withStrategy(new BotStrategy()).connect(url);
     }
 };
