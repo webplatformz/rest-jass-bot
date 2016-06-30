@@ -6,6 +6,8 @@ const RandomBot = require('./RandomBot');
 const RegistryApi = require ('./RegistryApi');
 const nameGenerator = require('docker-namesgenerator');
 
+const port = process.env.PORT || 3002;
+
 let app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,20 +17,20 @@ let router = express.Router();
 
 router.post('/', (req, res) => {
     const requestBody = req.body;
+    console.log(requestBody);
     const sessionname = requestBody.sessionName;
     const url = requestBody.wsUrl;
     const botName = nameGenerator();
-    console.log('entered rest -jass bot');
-    console.log(requestBody);
-    RandomBot.create(botName, url, sessionname);
+    const mode = requestBody.mode;
+    RandomBot.create(botName, url, mode, sessionname);
 
-    res.send(200);
+    res.sendStatus(200);
 });
 
 app.use('/api', router);
 
-app.listen(1337);
+app.listen(port);
 
-RegistryApi.registerBotToRegistry();
+//RegistryApi.registerBotToRegistry();
 
-console.log('server listening on port 1337');
+console.log('server listening on port ' + port);
