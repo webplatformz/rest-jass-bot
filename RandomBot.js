@@ -31,7 +31,6 @@ class BotStrategy {
     }
 
     requestSessionChoice() {
-        console.log('here i am');
         return {
             sessionName: this.sessionName,
             sessionChoice: 'JOIN_EXISTING'
@@ -46,7 +45,7 @@ module.exports = {
         console.log('Mode: ' + mode);
         console.log('SessionName: ' + sessionName);
         
-        new Bot(name).withStrategy(new BotStrategy()).connect(url);
-        new Bot(name).withStrategy(new BotStrategy()).connect(url);
+        new Bot(name).withStrategy(new BotStrategy(sessionName)).connect(url);
+        new Bot(name).withStrategy(new BotStrategy(sessionName)).connect(url);
     }
 };
