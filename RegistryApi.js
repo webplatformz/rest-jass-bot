@@ -13,7 +13,7 @@ function registerBotToRegistry() {
 
     const post_options = {
         host: 'localhost',
-        port: 1338,
+        port: 3001,
         path: '/api',
         method: 'POST',
         headers: {
