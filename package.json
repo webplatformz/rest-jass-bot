@@ -1,0 +1,30 @@
+{
+  "name": "rest-jass-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=6.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webplatformz/rest-jass-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webplatformz/rest-jass-bot/issues"
+  },
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "docker-namesgenerator": "0.0.1",
+    "express": "4.14.0",
+    "javascript-jass-bot": "git://github.com/dstucki/javascript-jass-bot.git#0.0.8"
+  },
+  "homepage": "https://github.com/webplatformz/rest-jass-bot#readme"
+}
