@@ -3,6 +3,11 @@
 let Bot = require('javascript-jass-bot');
 
 class BotStrategy {
+
+    constructor(sessionName) {
+        this.sessionName = sessionName;
+    }
+
     requestTrumpf(cards, isGeschoben) {
         // e.g. choose TRUMPF SPADES
         let response = {};
@@ -24,11 +29,19 @@ class BotStrategy {
     notifyError(error) {
         console.log(error);
     }
+
+    requestSessionChoice() {
+        console.log('here i am');
+        return {
+            sessionName: this.sessionName,
+            sessionChoice: 'JOIN_EXISTING'
+        }
+    }
 }
 
 module.exports = {
     create(name, url, sessionName) {
-        new Bot(name).withStrategy(new BotStrategy()).connect(url);
-        new Bot(name).withStrategy(new BotStrategy()).connect(url);
+        new Bot(name).withStrategy(new BotStrategy(sessionName)).connect(url);
+        new Bot(name).withStrategy(new BotStrategy(sessionName)).connect(url);
     }
 };
